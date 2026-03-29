@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mining Fleet Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Mining Fleet Dashboard</h1>
+
+<p>Total Ritase: <span id="ritaseCount">0</span></p>
+
+<nav>
+<a href="users.html">Users</a> |
+<a href="units.html">Units</a> |
+<a href="tasks.html">Tasks</a> |
+<a href="ritase.html">Ritase</a>
+</nav>
+
+<script>
+
+async function loadDashboard(){
+
+    const res = await fetch("http://localhost:3000/ritase")
+    const data = await res.json()
+
+    document.getElementById("ritaseCount").innerText = data.length
+}
+
+loadDashboard()
+
+</script>
+
+</body>
+</html>
